@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Swagger API">
+    <test name="API" parallel="classes">
+        <parameter name="filePath" value="\\src\\main\\resources\\mockData.xlsx" />
+        <classes>
+            <class name="swaggerApi.UserDDT">
+                <methods>
+                    <include name="createUsers"/>
+                    <include name="getUser"/>
+                    <include name="deleteUser"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
