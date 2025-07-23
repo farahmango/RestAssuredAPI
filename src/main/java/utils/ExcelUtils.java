@@ -189,7 +189,7 @@ public class ExcelUtils {
                         DataFormatter df = new DataFormatter();
                         cellVal = df.formatCellValue(cell);
                     } else {
-                        cellVal = cell.getNumericCellValue();
+                        cellVal = (int) cell.getNumericCellValue();
                     }
                 }
                 break;

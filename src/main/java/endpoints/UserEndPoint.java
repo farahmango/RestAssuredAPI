@@ -2,6 +2,7 @@ package endpoints;
 //contains the CRUD operations
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import io.restassured.response.ValidatableResponse;
 import module.User;
 import routes.Route;
 
@@ -30,12 +31,16 @@ public class UserEndPoint {
                 return response;
         }
 
-        public static Response readUser(String user){
-                Response response= given().
+        public static ValidatableResponse readUser(String user){
+                ValidatableResponse response= given().
                         accept(ContentType.JSON).
                         pathParam("userName",user).
                         when().
-                        get(Route.get_user_url);
+                        get(Route.get_user_url).
+                        then().
+                        log().
+                        all().
+                        statusCode(200);
                 return response;
         }
         public static Response deleteUser( String user){
